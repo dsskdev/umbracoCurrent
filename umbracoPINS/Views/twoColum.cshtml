@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+
+@* the fun starts here *@
+
+<h1>
+@Umbraco.Field("title")
+    </h1>
+
+@{
+    var pageImage = Model.Content.GetPropertyValue<IPublishedContent>("image");
+    if(pageImage != null){
+        <img src="@pageImage.GetPropertyValue("umbracoFile")" />
+    }
+}
+
+
+<div class="row">
+    <div class="col m4">
+        @Html.Partial("descendents")
+    </div>
+    <div class="col s8">
+        @Umbraco.Field("contentRTE")
+    </div>
+</div>
+
