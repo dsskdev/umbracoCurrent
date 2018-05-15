@@ -452,6 +452,7 @@
     <Content Include="Views\page.cshtml" />
     <Content Include="Views\Partials\descendents.cshtml" />
     <Content Include="Views\twoColum.cshtml" />
+    <Content Include="Views\Partials\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

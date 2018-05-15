@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<h2>Index</h2>
+
+@{
+
+
+    var glossary = Model.Content.Children();    
+    var glossaryItems = glossary.OrderBy(gi => gi.Name);
+
+    char c;
+    string letter = String.Empty;
+
+    bool isFirst = true;       
+}
+
+
+<div classs="row">
+<div class="col s12">
+    <ul class="tabs">
+        @for (c = 'A'; c <= 'Z'; ++c)
+        {
+            <li class="tab col s1">
+                <a class="blue darken-4" href="@string.Format("#block-{0}", c)" aria-controls="home" role="tab" data-toggle="tab">@c</a>
+            </li>
+            if (isFirst)
+            {
+                isFirst = false;
+            }
+        }
+    </ul>
+</div>
+</div>
+
+
+@{
+    isFirst = true;
+}
+
+<div class="row">
+    @for (c = 'A'; c <= 'Z'; ++c)
+    {
+        string curString = c.ToString();
+        <div role="tabpanel" class="tab-pane @(isFirst ? "active" : string.Empty)" id="@string.Format("block-{0}", c)">
+            @foreach (var item in glossaryItems.Where(gi => gi.Name.ToLower().StartsWith(curString.ToLower())))
+            {
+                <div class="col-sm-12 gloss-term">
+                    <h5>@item.Name</h5>
+                    <p>@item.GetPropertyValue("description")</p>
+                </div>
+            }
+        </div>
+
+        if (isFirst)
+        {
+            isFirst = false;
+        }
+    }
+</div>
