@@ -12,14 +12,9 @@ body {
      display: inline;
  }
 
+.index {
+    display: inline-block;
+    align-items: center;
+    width: 2em;
+}
  /* materialise override */
-.tabs .tab a {
-    color: aliceblue;
-    padding: 0 0.7em;
-}
-.tabs .tab a:hover, .tabs .tab a.active {
-    color: darkcyan;
-}
-.tabs .indicator {
-    background-color: darkcyan;
-}
