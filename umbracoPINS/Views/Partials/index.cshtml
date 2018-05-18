@@ -33,7 +33,7 @@
         @for (c = 'A'; c <= 'Z'; ++c)
         {
             string curString = c.ToString();
-            <h4>@c</h4>
+            <h5>@c</h5>
             <div id="@string.Format("block-{0}", c)">
                 @foreach (var item in glossaryItems.Where(gi => gi.Name.ToLower().StartsWith(curString.ToLower())))
                 {

@@ -1,0 +1,20 @@
+﻿@using System.Data
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<h2>Index</h2>
+
+@{
+    var selection = Model.Content.Children.Where(x => x.IsVisible()).ToArray();
+    var selectionItems = selection.OrderBy(si => si.Name);
+}
+<div class="row">
+    @foreach (var item in selectionItems)
+    {
+        <div class="col s12 m6">
+            <div class="card blue darken-4">
+                <div class="card-content white-text">
+                    <h5><a href="@item.Url">@item.Name</a></h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>
