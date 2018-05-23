@@ -12,13 +12,18 @@
 
     @Html.Partial("chapters")
 
-@*@{
-    var pageImage = Model.Content.GetPropertyValue<IPublishedContent>("image");
-    if(pageImage != null){
-        <img src="@pageImage.GetPropertyValue("umbracoFile")" />
-    }
-}
 
+<div class="col s8">
+    @Umbraco.Field("contentRTE")
+</div>
+
+@*@{
+        var pageImage = Model.Content.GetPropertyValue<IPublishedContent>("image");
+        if(pageImage != null){
+            <img src="@pageImage.GetPropertyValue("umbracoFile")" />
+        }
+    }
+*@
 
 <div class="row">
     <div class="col m4">
@@ -27,5 +32,5 @@
     <div class="col s8">
         @Umbraco.Field("contentRTE")
     </div>
-</div>*@
+</div>
 

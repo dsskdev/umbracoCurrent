@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+
+<div class="row">
+    <div class="col m4">
+        @Html.Partial("children")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col m4">
+        @Html.Partial("descendents")
+    </div>
+</div>

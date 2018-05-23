@@ -455,6 +455,9 @@
     <Content Include="Views\twoColum.cshtml" />
     <Content Include="Views\Partials\index.cshtml" />
     <Content Include="Views\Partials\chapters.cshtml" />
+    <None Include="Properties\PublishProfiles\Legal.pubxml" />
+    <Content Include="Views\branchBase.cshtml" />
+    <Content Include="Views\search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -501,7 +504,6 @@
     <Content Include="css\fonts\roboto\Roboto-Light.woff" />
     <Content Include="css\fonts\roboto\Roboto-Bold.woff2" />
     <Content Include="css\fonts\roboto\Roboto-Bold.woff" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
