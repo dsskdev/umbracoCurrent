@@ -10,11 +10,10 @@
     @foreach (var item in selectionItems)
     {
         <div class="col s12 m6">
-            <div class="card blue darken-4">
-                <div class="card-content white-text">
-                    <h5><a href="@item.Url">@item.Name</a></h5>
-                </div>
-            </div>
+            <h5>
+                <i class="material-icons  light-blue-text text-darken-1">folder_open</i>
+                <a href="@item.Url">@item.Name</a>
+            </h5>
         </div>
     }
 </div>

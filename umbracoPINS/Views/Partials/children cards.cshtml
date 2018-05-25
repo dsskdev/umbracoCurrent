@@ -11,11 +11,13 @@
 *@
 
 @{ var selection = Model.Content.Children.Where(x => x.IsVisible()).ToArray(); }
+
 @if (selection.Length > 0)
 {
-    foreach (var item in selection)
+    <div class="row">
+    @foreach (var item in selection)
     {
-        <div class="col s12">
+        <div class="col s12 m6">
             <div class="card-panel blue darken-4">
                 <a href="@item.Url">
                     <i class="material-icons white-text">folder_open</i>
@@ -24,4 +26,5 @@
             </div>
         </div>
     }
+        </div>
 }

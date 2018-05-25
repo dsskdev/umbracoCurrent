@@ -1,12 +1,15 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-<h2>Index</h2>
+<div class="row">
+    <div class="col s12">
+        <h4>Index</h4>
+    </div>
+</div>
 
 @{
-
-    var glossary = Model.Content.Children();    
+    var glossary = Model.Content.Descendants().Where(x => x.Level == 5);
     var glossaryItems = glossary.OrderBy(gi => gi.Name);
     var c = 'A';
-    var isFirst = true;       
+    var isFirst = true;
 }
 <div class="row">
     <div class="col s12">
@@ -22,31 +25,37 @@
                 }
             }
         </ul>
-        </div>
+    </div>
 </div>
 
-    @{
-        isFirst = true;
-    }
+@{
+    isFirst = true;
+}
 
-    <div class="row">
-        @for (c = 'A'; c <= 'Z'; ++c)
-        {
-            string curString = c.ToString();
-            <h5>@c</h5>
-            <div id="@string.Format("block-{0}", c)">
-                @foreach (var item in glossaryItems.Where(gi => gi.Name.ToLower().StartsWith(curString.ToLower())))
+<div class="row">
+    <div class="col s12">
+    @for (c = 'A'; c <= 'Z'; ++c)
+    {
+        string curString = c.ToString();
+        <h5>@c</h5>
+        <div id="@string.Format("block-{0}", c)">
+            @foreach (var item in glossaryItems.Where(gi => gi.Name.ToLower().StartsWith(curString.ToLower())))
+            {
+                var lc = item.GetPropertyValue<string>("lawCategory");
+                if (lc == "legislation")
                 {
                     <div>
                         <h5><a href="@item.Url">@item.Name</a></h5>
                         <p>@item.GetPropertyValue("description")</p>
                     </div>
                 }
-            </div>
-
-            if (isFirst)
-            {
-                isFirst = false;
             }
+        </div>
+
+        if (isFirst)
+        {
+            isFirst = false;
         }
+    }
     </div>
+</div>

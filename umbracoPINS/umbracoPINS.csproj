@@ -458,6 +458,8 @@
     <None Include="Properties\PublishProfiles\Legal.pubxml" />
     <Content Include="Views\branchBase.cshtml" />
     <Content Include="Views\search.cshtml" />
+    <Content Include="Views\branchCards.cshtml" />
+    <Content Include="Views\Partials\children cards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

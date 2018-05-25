@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "master.cshtml";
+}
+<div class="col s12">
+    <h3>@Model.Content.Name</h3>
+</div>
+@Html.Partial("children cards")
+

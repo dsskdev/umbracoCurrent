@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "cfd7bd64d5cb43b0")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6bb804265f72f9f2")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -33,6 +33,9 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>image</summary>
 		IPublishedContent Image { get; }
+
+		/// <summary>law category</summary>
+		object LawCategory { get; }
 
 		/// <summary>title</summary>
 		string Title { get; }
@@ -86,6 +89,18 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for image</summary>
 		public static IPublishedContent GetImage(IBasicContent that) { return that.GetPropertyValue<IPublishedContent>("image"); }
+
+		///<summary>
+		/// law category
+		///</summary>
+		[ImplementPropertyType("lawCategory")]
+		public object LawCategory
+		{
+			get { return GetLawCategory(this); }
+		}
+
+		/// <summary>Static getter for law category</summary>
+		public static object GetLawCategory(IBasicContent that) { return that.GetPropertyValue("lawCategory"); }
 
 		///<summary>
 		/// title
@@ -144,6 +159,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// law category
+		///</summary>
+		[ImplementPropertyType("lawCategory")]
+		public object LawCategory
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContent.GetLawCategory(this); }
+		}
+
+		///<summary>
 		/// title
 		///</summary>
 		[ImplementPropertyType("title")]
@@ -197,6 +221,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// law category
+		///</summary>
+		[ImplementPropertyType("lawCategory")]
+		public object LawCategory
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContent.GetLawCategory(this); }
+		}
+
+		///<summary>
 		/// title
 		///</summary>
 		[ImplementPropertyType("title")]
@@ -247,6 +280,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IPublishedContent Image
 		{
 			get { return Umbraco.Web.PublishedContentModels.BasicContent.GetImage(this); }
+		}
+
+		///<summary>
+		/// law category
+		///</summary>
+		[ImplementPropertyType("lawCategory")]
+		public object LawCategory
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContent.GetLawCategory(this); }
 		}
 
 		///<summary>

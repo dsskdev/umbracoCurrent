@@ -12,7 +12,7 @@
 @{ var selection = Model.Content.Ancestors().ToArray(); }
 @if (Model.Content.Level > 1)
 {
-    <nav class="blue darken-3">
+    <nav class="hide-on-small-only blue darken-3">
         <div class="container nav-wrapper">
             @if (selection.Length > 0)
             {

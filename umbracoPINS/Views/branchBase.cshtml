@@ -2,15 +2,14 @@
 @{
 	Layout = "master.cshtml";
 }
+<h3>@Model.Content.Name</h3>
 
+@*@Html.Partial("descendents")*@
 <div class="row">
-    <div class="col m4">
-        @Html.Partial("children")
+        <div class="col m4">
+            @Html.Partial("children")
+        </div>
+        <div class="col m8">
+            @Html.Partial("index")
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col m4">
-        @Html.Partial("descendents")
-    </div>
-</div>
