@@ -259,3 +259,14 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+# Umbraco omit
+media/
+packages/
+.vscode/
+.vs/
+temp/
+nugetbackup/
+logs/
+preview/
+cache/
+Content/
