@@ -9,7 +9,18 @@
 *@
 
 @{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
-<nav class="blue darken-4">
+<div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">World cup</span>
+    <div class="mdl-layout-spacer"></div>
+    <nav class="mdl-navigation">
+        @foreach (var item in selection)
+        {
+            <a class="mdl-navigation__link" href="@item.Url">@item.Name</a>
+        }
+    </nav>           
+</div>
+
+@*<nav class="blue darken-4">
     <div class="container nav-wrapper">
         <a href="/">Dibs Singh World Cup Database</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -48,4 +59,4 @@
             }
         </ul>
     </div>
-</nav>
+</nav>*@
