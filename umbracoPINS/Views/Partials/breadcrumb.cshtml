@@ -12,23 +12,37 @@
 @{ var selection = Model.Content.Ancestors().ToArray(); }
 @if (Model.Content.Level > 1)
 {
-    <nav class="hide-on-small-only blue darken-3">
+    <nav class="devsite-breadcrumb-nav">
+            @if (selection.Length > 0)
+            {
+                <ul class="devsite-breadcrumb-list">
+                    @foreach (var item in selection.OrderBy(x => x.Level))
+                    {
+                        <li class="devsite-breadcrumb-item">
+                            <a class="devsite-breadcrumb-link" href="@item.Url">@item.Name</a>
+                        </li>
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    }
+                    <li class="devsite-breadcrumb-item">@Model.Content.Name</li>
+                </ul>
+            }
+    </nav>
+
+
+    @*<nav class="hide-on-small-only blue darken-3">
         <div class="container nav-wrapper">
             @if (selection.Length > 0)
             {
-                <ul>
-                    @* For each page in the ancestors collection which have been ordered by Level (so we start with the highest top node first) *@
+                <ul>                    
                     @foreach (var item in selection.OrderBy(x => x.Level))
                     {
                         <li class="breadcrumb">
                             <a href="@item.Url">@item.Name</a>
                         </li>
-                    }
-
-                    @* Display the current page as the last item in the list *@
+                    }                 
                     <li class="breadcrumb">@Model.Content.Name</li>
                 </ul>
             }
         </div>
-    </nav>
+    </nav>*@
 }

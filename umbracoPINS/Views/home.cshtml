@@ -2,15 +2,18 @@
 @{
 	Layout = "master.cshtml";
 }
-<h1>
-@Umbraco.Field("title")
-</h1>
-@{
-    var pageImage = Model.Content.GetPropertyValue<IPublishedContent>("image");
-    if(pageImage != null){
-        <img src="@pageImage.GetPropertyValue("umbracoFile")" />
+<div class="mdl-grid">
+    <h1>
+        @Umbraco.Field("title")
+    </h1>
+    @{
+        var pageImage = Model.Content.GetPropertyValue<IPublishedContent>("image");
+        if (pageImage != null)
+        {
+            <img src="@pageImage.GetPropertyValue("umbracoFile")" />
+        }
     }
-}
 
 
-@Umbraco.Field("contentRTE")
+    @Umbraco.Field("contentRTE")
+</div>
