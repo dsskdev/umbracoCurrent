@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@using Umbraco.Core.Models
+@using Umbraco.Web
+
+
+
+@{ var selection = Model.Content.Children.Where(x => x.IsVisible()).ToArray(); }
+
+
+@if (selection.Length > 0)
+{   
+    var naviLevel = selection[0].Level;
+    <ul class="level-@(naviLevel) ">
+        @foreach (var item in selection)
+        {
+            <li>
+                <a href="@item.Url">@item.Name</a>  
+                @{
+                    var children = item.Children.Where(x => x.IsVisible()).ToArray();
+                    if (children.Length > 0)
+                    {
+                        @ChildPages(children)
+                    }
+                }
+            </li>
+        }
+    </ul>
+}
+
+
+@helper ChildPages(IPublishedContent[] selection)
+{
+    
+    if (selection.Length > 0)
+    {
+    
+        var naviLevel = selection[0].Level;
+
+    
+        <ul class="level-@(naviLevel ) ">
+            @foreach (var item in selection)
+            {
+                <li>
+                    <a href="@item.Url">@item.Name</a>
+
+                   
+                    @{
+                        var children = item.Children.Where(x => x.IsVisible()).ToArray();
+                        if (children.Length > 0)
+                        {
+                        
+                            @ChildPages(children)
+                        }
+                    }
+                </li>
+            }
+        </ul>
+    }
+}

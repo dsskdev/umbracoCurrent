@@ -2,7 +2,7 @@
 @{
 	Layout = "master.cshtml";
 }
-<div class="mdl-grid">
+@*<div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
         <h1>@Model.Content.Name</h1>
     </div>
@@ -14,11 +14,17 @@
     <div class="mdl-cell mdl-cell--8-col">
         @Html.Partial("index")
     </div>
+</div>*@
+
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+        @Html.Partial("d")
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+       
+    </div>
 </div>
-
-
-
-    @*@Html.Partial("descendents")*@
     @*<div class="row">
             <div class="col m4">
                 @Html.Partial("children")

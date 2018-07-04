@@ -460,6 +460,7 @@
     <Content Include="Views\search.cshtml" />
     <Content Include="Views\branchCards.cshtml" />
     <Content Include="Views\Partials\children cards.cshtml" />
+    <Content Include="Views\Partials\d.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
